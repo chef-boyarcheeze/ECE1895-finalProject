@@ -23,6 +23,11 @@ namespace FamilyTree_ECE1895
         Brush CustomBrush;
         Random r = new Random();
 
+        public string name, relation;
+        public int age;
+
+        public bool done = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,29 +35,20 @@ namespace FamilyTree_ECE1895
 
         public void addItem(object sender, MouseButtonEventArgs e)
         {
-            // this is the event that will check if we clicked on a rectangle or if we clicked on the canvas
-            // if we clicked on a rectangle then it will do the following
-
             if (e.OriginalSource is Rectangle)
             {
-                // if the click source is a rectangle then we will create a new rectangle
-                // and link it to the rectangle that sent the click event
-                Rectangle activeRec = (Rectangle)e.OriginalSource; // create the link between the sender rectangle
+                Rectangle activeRec = (Rectangle)e.OriginalSource;
 
-                Canvas.Children.Remove(activeRec); // find the rectangle and remove it from the canvas
+                Canvas.Children.Remove(activeRec);
             }
 
-            // if we clicked on the canvas then we do the following
             else
             {
-                // generate a random colour and save it inside the custom brush variable
+                // generate a random brush color:
                 CustomBrush = new SolidColorBrush(Color.FromRgb((byte)r.Next(1, 255),
                 (byte)r.Next(1, 255), (byte)r.Next(1, 233)));
 
-                // create a re rectangle and give it the following properties
-                // height and width 50 pixels
-                // border thickness 3 pixels, fill colour set to the custom brush created above
-                // border colour set to black
+
                 Rectangle newRec = new Rectangle
                 {
                     Width = 50,
@@ -62,12 +58,13 @@ namespace FamilyTree_ECE1895
                     Stroke = Brushes.Black
                 };
 
-                // once the rectangle is set we need to give a X and Y position for the new object
-                // we will calculate the mouse click location and add it there
                 Canvas.SetLeft(newRec, Mouse.GetPosition(Canvas).X); // set the left position of rectangle to mouse X
                 Canvas.SetTop(newRec, Mouse.GetPosition(Canvas).Y); // set the top position of rectangle to mouse Y
 
-                Canvas.Children.Add(newRec); // add the new rectangle to the canvas
+                AddItemWindow newMember = new AddItemWindow(newRec);
+                newMember.Topmost = true;
+                newMember.Show();
+                newMember.Activate();
             }
         }
     }
