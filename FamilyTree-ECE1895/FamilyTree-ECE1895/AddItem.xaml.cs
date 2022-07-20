@@ -38,7 +38,7 @@ namespace FamilyTree_ECE1895
                     ((MainWindow)Application.Current.MainWindow).name = addName.Text;
                     nameSet = true;
 
-                    newRec.ToolTip = addName.Text;
+                    newRec.ToolTip += addName.Text;
 
                     if (nameSet && relationSet && ageSet)
                     {
@@ -53,6 +53,8 @@ namespace FamilyTree_ECE1895
                     ((MainWindow)Application.Current.MainWindow).relation = addRelation.Text;
                     relationSet = true;
 
+                    newRec.ToolTip += addRelation.Text;
+
                     if (nameSet && relationSet && ageSet)
                     {
                         ((MainWindow)Application.Current.MainWindow).done = true;
@@ -65,6 +67,8 @@ namespace FamilyTree_ECE1895
                 {
                     //((MainWindow)Application.Current.MainWindow).age = int.Parse(addName.Text);
                     ageSet = true;
+
+                    newRec.ToolTip += addAge.Text;
 
                     if (nameSet && relationSet && ageSet)
                     {
