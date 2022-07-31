@@ -44,7 +44,6 @@ namespace FamilyTree_ECE1895
                     {
                         ((MainWindow)Application.Current.MainWindow).done = true;
                         ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
-                        MessageBox.Show(newRec.ToolTip.ToString());
                         this.Close();
                     }
                 }
@@ -57,7 +56,6 @@ namespace FamilyTree_ECE1895
                     {
                         ((MainWindow)Application.Current.MainWindow).done = true;
                         ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
-                        MessageBox.Show(newRec.ToolTip.ToString());
                         this.Close();
                     }
                 }
@@ -70,7 +68,6 @@ namespace FamilyTree_ECE1895
                     {
                         ((MainWindow)Application.Current.MainWindow).done = true;
                         ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
-                        MessageBox.Show(newRec.ToolTip.ToString());
                         this.Close();
                     }
                 }
