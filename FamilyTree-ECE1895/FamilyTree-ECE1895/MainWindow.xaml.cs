@@ -15,18 +15,24 @@ using System.Windows.Shapes;
 
 namespace FamilyTree_ECE1895
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    public struct Vertex
+    {
+        public Vertex(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+        
+        public string Name;
+        public int Age;
+    }
+
     public partial class MainWindow : Window
     {
         Brush CustomBrush;
         Random r = new Random();
 
-        public string name, relation;
-        public int age;
-
-        public bool done = false;
+        public List<Vertex> NameList = new List<Vertex>();
 
         public MainWindow()
         {
@@ -39,7 +45,17 @@ namespace FamilyTree_ECE1895
             {
                 Rectangle activeRec = (Rectangle)e.OriginalSource;
 
-                Canvas.Children.Remove(activeRec);
+                int i = 0;
+
+                while (NameList[i].Name != activeRec.ToolTip.ToString())
+                {
+                    i++;
+                }
+
+                ViewItemWindow newMember = new ViewItemWindow(activeRec,i);
+                newMember.Topmost = true;
+                newMember.Show();
+                newMember.Activate();
             }
 
             else

@@ -19,7 +19,6 @@ namespace FamilyTree_ECE1895
     /// </summary>
     public partial class AddItemWindow : Window
     {
-        private bool nameSet = false, relationSet = false, ageSet = false;
         Rectangle newRec;
 
         public AddItemWindow(Rectangle recIn)
@@ -29,51 +28,39 @@ namespace FamilyTree_ECE1895
             newRec = recIn;
         }
 
-        private void TextChanged(object sender, KeyEventArgs e)
+        public void TextChanged(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
                 if (sender == addName)
                 {
-                    ((MainWindow)Application.Current.MainWindow).name = addName.Text;
-                    nameSet = true;
-
                     newRec.ToolTip += addName.Text;
-
-                    if (nameSet && relationSet && ageSet)
-                    {
-                        ((MainWindow)Application.Current.MainWindow).done = true;
-                        ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
-                        this.Close();
-                    }
-                }
-                else if (sender == addRelation)
-                {
-                    ((MainWindow)Application.Current.MainWindow).relation = addRelation.Text;
-                    relationSet = true;
-
-                    newRec.ToolTip += addRelation.Text;
-
-                    if (nameSet && relationSet && ageSet)
-                    {
-                        ((MainWindow)Application.Current.MainWindow).done = true;
-                        ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
-                        this.Close();
-                    }
                 }
                 else if (sender == addAge)
                 {
-                    //((MainWindow)Application.Current.MainWindow).age = int.Parse(addName.Text);
-                    ageSet = true;
-
                     newRec.ToolTip += addAge.Text;
+                }
+            }
+        }
 
-                    if (nameSet && relationSet && ageSet)
-                    {
-                        ((MainWindow)Application.Current.MainWindow).done = true;
-                        ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
-                        this.Close();
-                    }
+        public void AddPerson(object sender, RoutedEventArgs e)
+        {
+            if (sender == addPerson)
+            {
+                int age;
+
+                if (int.TryParse(addAge.Text,out age))
+                {
+                    newRec.ToolTip = addName.Text;
+                    Vertex NewPerson = new Vertex(addName.Text, age);
+
+                    ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
+                    ((MainWindow)Application.Current.MainWindow).NameList.Add(NewPerson);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Set age to an integer value and try again!");
                 }
             }
         }
