@@ -51,7 +51,7 @@ namespace FamilyTree_ECE1895
 
                 if (int.TryParse(addAge.Text,out age))
                 {
-                    newRec.ToolTip = addName.Text;
+                    newRec.ToolTip = addName.Text + "\n" + age;
                     Vertex NewPerson = new Vertex(addName.Text, age);
 
                     ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);

@@ -49,7 +49,7 @@ namespace FamilyTree_ECE1895
 
                 int i = 0;
 
-                while (NameList[i].Name != activeRec.ToolTip.ToString())
+                while ((NameList[i].Name + "\n" + NameList[i].Age) != activeRec.ToolTip.ToString())
                 {
                     i++;
                 }

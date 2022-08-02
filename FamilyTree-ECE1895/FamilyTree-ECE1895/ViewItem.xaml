@@ -8,10 +8,10 @@
         Title="View Item" Height="192" Width="260">
     <Grid Margin="0,0,10,12">
         <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,24,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
-        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,51,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
-        <TextBlock x:Name="age" HorizontalAlignment="Left" TextAlignment="Center" Margin="120,53,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" Background="Gainsboro"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,61,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
+        <TextBlock x:Name="age" HorizontalAlignment="Left" TextAlignment="Center" Margin="120,64,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" Background="Gainsboro"/>
         <TextBlock x:Name="name" HorizontalAlignment="Left" TextAlignment="Center" Margin="120,26,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" Background="Gainsboro"/>
-        <Button x:Name="removePerson" Content="Remove Person" HorizontalAlignment="Left" Margin="26,86,0,0" VerticalAlignment="Top" Click="RemovePerson" ClickMode="Press" Width="95" Background="#FFE86565" Height="36"/>
+        <Button x:Name="removePerson" Content="Remove Person" HorizontalAlignment="Left" Margin="132,104,0,0" VerticalAlignment="Top" Click="RemovePerson" ClickMode="Press" Width="96" Background="#FFE86565" Height="36"/>
 
 
 
