@@ -34,6 +34,8 @@ namespace FamilyTree_ECE1895
 
         public List<Vertex> NameList = new List<Vertex>();
 
+        public int familySize = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -67,8 +69,8 @@ namespace FamilyTree_ECE1895
 
                 Rectangle newRec = new Rectangle
                 {
-                    Width = 50,
-                    Height = 50,
+                    Width = 25,
+                    Height = 25,
                     StrokeThickness = 3,
                     Fill = CustomBrush,
                     Stroke = Brushes.Black

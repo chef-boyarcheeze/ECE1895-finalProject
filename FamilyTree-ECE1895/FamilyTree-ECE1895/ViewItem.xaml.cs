@@ -37,6 +37,10 @@ namespace FamilyTree_ECE1895
         {
             ((MainWindow)Application.Current.MainWindow).Canvas.Children.Remove(activeRec);
             ((MainWindow)Application.Current.MainWindow).NameList.RemoveAt(index);
+
+            ((MainWindow)Application.Current.MainWindow).familySize--;
+            ((MainWindow)Application.Current.MainWindow).FamilySize.Text = "Family Size: " + ((MainWindow)Application.Current.MainWindow).familySize;
+
             this.Close();
         }
     }

@@ -56,6 +56,10 @@ namespace FamilyTree_ECE1895
 
                     ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
                     ((MainWindow)Application.Current.MainWindow).NameList.Add(NewPerson);
+
+                    ((MainWindow)Application.Current.MainWindow).familySize++;
+                    ((MainWindow)Application.Current.MainWindow).FamilySize.Text = "Family Size: " + ((MainWindow)Application.Current.MainWindow).familySize;
+
                     this.Close();
                 }
                 else
