@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyTree_ECE1895"
         mc:Ignorable="d"
-        Title="View Item" Height="192" Width="260">
+        Title="View Item" Height="200" Width="260">
     <Grid Margin="0,0,10,12">
         <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,24,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
         <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,61,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
