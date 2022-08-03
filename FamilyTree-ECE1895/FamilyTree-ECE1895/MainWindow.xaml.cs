@@ -27,12 +27,26 @@ namespace FamilyTree_ECE1895
         public int Age;
     }
 
+    public struct Edge
+    {
+        public Edge(string name1, string name2, int level)
+        {
+            Name1 = name1;
+            Name2 = name2;
+            Level = level;
+        }
+
+        public string Name1, Name2;
+        public int Level;
+    }
+
     public partial class MainWindow : Window
     {
         Brush CustomBrush;
         Random r = new Random();
 
         public List<Vertex> NameList = new List<Vertex>();
+        public List<Edge> EdgeList = new List<Edge>();
 
         public int familySize = 0;
 
