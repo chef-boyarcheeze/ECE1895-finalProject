@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyTree_ECE1895"
         mc:Ignorable="d"
-        Title="View Item" Height="200" Width="260">
+        Title="View Item" Height="237" Width="379">
     <Grid Margin="0,0,10,12">
-        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,24,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
-        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,61,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,24,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="22" Width="89" Background="Gainsboro"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,61,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top" Height="22" Width="89" Background="Gainsboro"/>
         <TextBlock x:Name="age" HorizontalAlignment="Left" TextAlignment="Center" Margin="120,64,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" Background="Gainsboro"/>
         <TextBlock x:Name="name" HorizontalAlignment="Left" TextAlignment="Center" Margin="120,26,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" Background="Gainsboro"/>
-        <Button x:Name="removePerson" Content="Remove Person" HorizontalAlignment="Left" Margin="132,104,0,0" VerticalAlignment="Top" Click="RemovePerson" ClickMode="Press" Width="96" Background="#FFE86565" Height="36"/>
-
-
-
+        <Button x:Name="removePerson" Content="Remove Person" HorizontalAlignment="Left" Margin="256,35,0,0" VerticalAlignment="Top" Click="RemovePerson" ClickMode="Press" Width="96" Background="#FFE86565" Height="37"/>
+        <Button x:Name="addLink" Content="Add Link" HorizontalAlignment="Left" Margin="256,109,0,0" VerticalAlignment="Top" Click="AddLink" ClickMode="Press" Width="96" Background="#FF658BE8" Height="36"/>
+        <ComboBox x:Name="SelectedPerson" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="120,98,0,0" VerticalAlignment="Top" Width="120" Height="22" SelectionChanged="SelectedPerson_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,98,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Select Person:" VerticalAlignment="Top" Width="89" Background="Gainsboro" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,134,0,0" TextWrapping="Wrap" TextAlignment="Center" Text="Generation Gap:" VerticalAlignment="Top" Width="89" Background="Gainsboro" Height="22"/>
+        <TextBox x:Name="GenerationGap" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="120,134,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" Height="22"/>
     </Grid>
 </Window>

@@ -10,7 +10,7 @@
     <Canvas Name="Canvas" Focusable="True" MouseLeftButtonDown="addItem" Background="White">
         <TextBlock Canvas.Left="268" TextWrapping="Wrap" Text="Click anywhere to add a family member:" Canvas.Top="13" Height="24" Width="264" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
         <TextBlock x:Name="FamilySize" Height="24" Canvas.Left="10" TextWrapping="Wrap" Text="Family Size: 0" Canvas.Top="13" Width="111" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Height="24" Canvas.Left="10" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="42" Width="111"/>
+        <TextBlock x:Name="EdgeCount" Height="24" Canvas.Left="10" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="42" Width="111"/>
 
     </Canvas>
 </Window>

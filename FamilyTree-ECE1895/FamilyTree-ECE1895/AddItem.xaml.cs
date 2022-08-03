@@ -51,14 +51,13 @@ namespace FamilyTree_ECE1895
 
                 if (int.TryParse(addAge.Text,out age))
                 {
-                    newRec.ToolTip = addName.Text + "\n" + age;
-                    Vertex NewPerson = new Vertex(addName.Text, age);
+                    newRec.ToolTip = addName.Text + "\n" + age + "\nID: " + ((MainWindow)Application.Current.MainWindow).Id;
+                    Vertex NewPerson = new Vertex(addName.Text, age, ((MainWindow)Application.Current.MainWindow).Id);
 
                     ((MainWindow)Application.Current.MainWindow).Canvas.Children.Add(newRec);
                     ((MainWindow)Application.Current.MainWindow).NameList.Add(NewPerson);
 
-                    ((MainWindow)Application.Current.MainWindow).familySize++;
-                    ((MainWindow)Application.Current.MainWindow).FamilySize.Text = "Family Size: " + ((MainWindow)Application.Current.MainWindow).familySize;
+                    ((MainWindow)Application.Current.MainWindow).Id++;
 
                     this.Close();
                 }

@@ -12,32 +12,59 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FamilyTree_ECE1895
 {
     public struct Vertex
     {
-        public Vertex(string name, int age)
+        public Vertex(string name, int age, int id)
         {
             Name = name;
             Age = age;
+            Id = id;
         }
         
         public string Name;
-        public int Age;
+        public int Age, Id;
+
+        public static bool operator ==(Vertex c1, Vertex c2)
+        {
+            return c1.Equals(c2);
+        }
+
+        public static bool operator !=(Vertex c1, Vertex c2)
+        {
+            return !c1.Equals(c2);
+        }
     }
 
     public struct Edge
     {
-        public Edge(string name1, string name2, int level)
+        public Edge(Vertex name1, Vertex name2, int level)
         {
             Name1 = name1;
             Name2 = name2;
             Level = level;
         }
 
-        public string Name1, Name2;
+        public Vertex Name1, Name2;
         public int Level;
+
+        public static bool operator ==(Edge c1, Edge c2)
+        {
+            return c1.Equals(c2);
+        }
+
+        public static bool operator !=(Edge c1, Edge c2)
+        {
+            return !c1.Equals(c2);
+        }
+
+        public static bool operator |(Edge c1, Edge c2)
+        {
+            return (c1.Name1 == c2.Name2) || (c1.Name2 == c2.Name1);
+        }
     }
 
     public partial class MainWindow : Window
@@ -45,14 +72,17 @@ namespace FamilyTree_ECE1895
         Brush CustomBrush;
         Random r = new Random();
 
+        DispatcherTimer UITimer;
+
         public List<Vertex> NameList = new List<Vertex>();
         public List<Edge> EdgeList = new List<Edge>();
 
-        public int familySize = 0;
+        public int Id = 0;
 
         public MainWindow()
         {
             InitializeComponent();
+            InitTimer();
         }
 
         public void addItem(object sender, MouseButtonEventArgs e)
@@ -63,7 +93,7 @@ namespace FamilyTree_ECE1895
 
                 int i = 0;
 
-                while ((NameList[i].Name + "\n" + NameList[i].Age) != activeRec.ToolTip.ToString())
+                while ((NameList[i].Name + "\n" + NameList[i].Age + "\nID: " + NameList[i].Id) != activeRec.ToolTip.ToString())
                 {
                     i++;
                 }
@@ -98,6 +128,22 @@ namespace FamilyTree_ECE1895
                 newMember.Show();
                 newMember.Activate();
             }
+        }
+
+        public void InitTimer()
+        {
+            UITimer = new DispatcherTimer();
+
+            UITimer.Tick += new EventHandler(UpdateUI);
+
+            UITimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            UITimer.Start();
+        }
+
+        public void UpdateUI(object sender, EventArgs e)
+        {
+            FamilySize.Text = "Family Size: " + NameList.Count;
+            EdgeCount.Text = "Edge Count: " + EdgeList.Count;
         }
     }
 }
