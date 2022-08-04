@@ -12,25 +12,77 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FamilyTree_ECE1895
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    public struct Vertex
+    {
+        public Vertex(string name, int age, int id)
+        {
+            Name = name;
+            Age = age;
+            Id = id;
+        }
+        
+        public string Name;
+        public int Age, Id;
+
+        public static bool operator ==(Vertex c1, Vertex c2)
+        {
+            return c1.Equals(c2);
+        }
+
+        public static bool operator !=(Vertex c1, Vertex c2)
+        {
+            return !c1.Equals(c2);
+        }
+    }
+
+    public struct Edge
+    {
+        public Edge(Vertex name1, Vertex name2, int level)
+        {
+            Name1 = name1;
+            Name2 = name2;
+            Level = level;
+        }
+
+        public Vertex Name1, Name2;
+        public int Level;
+
+        public static bool operator ==(Edge c1, Edge c2)
+        {
+            return c1.Equals(c2);
+        }
+
+        public static bool operator !=(Edge c1, Edge c2)
+        {
+            return !c1.Equals(c2);
+        }
+
+        public static bool operator |(Edge c1, Edge c2)
+        {
+            return (c1.Name1 == c2.Name2) || (c1.Name2 == c2.Name1);
+        }
+    }
+
     public partial class MainWindow : Window
     {
         Brush CustomBrush;
         Random r = new Random();
 
-        public string name, relation;
-        public int age;
+        DispatcherTimer UITimer;
 
-        public bool done = false;
+        public List<Vertex> NameList = new List<Vertex>();
+        public List<Edge> EdgeList = new List<Edge>();
+
+        public int Id = 0;
 
         public MainWindow()
         {
             InitializeComponent();
+            InitTimer();
         }
 
         public void addItem(object sender, MouseButtonEventArgs e)
@@ -39,7 +91,17 @@ namespace FamilyTree_ECE1895
             {
                 Rectangle activeRec = (Rectangle)e.OriginalSource;
 
-                Canvas.Children.Remove(activeRec);
+                int i = 0;
+
+                while ((NameList[i].Name + "\n" + NameList[i].Age + "\nID: " + NameList[i].Id) != activeRec.ToolTip.ToString())
+                {
+                    i++;
+                }
+
+                ViewItemWindow newMember = new ViewItemWindow(activeRec,i);
+                newMember.Topmost = true;
+                newMember.Show();
+                newMember.Activate();
             }
 
             else
@@ -51,8 +113,8 @@ namespace FamilyTree_ECE1895
 
                 Rectangle newRec = new Rectangle
                 {
-                    Width = 50,
-                    Height = 50,
+                    Width = 25,
+                    Height = 25,
                     StrokeThickness = 3,
                     Fill = CustomBrush,
                     Stroke = Brushes.Black
@@ -66,6 +128,22 @@ namespace FamilyTree_ECE1895
                 newMember.Show();
                 newMember.Activate();
             }
+        }
+
+        public void InitTimer()
+        {
+            UITimer = new DispatcherTimer();
+
+            UITimer.Tick += new EventHandler(UpdateUI);
+
+            UITimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            UITimer.Start();
+        }
+
+        public void UpdateUI(object sender, EventArgs e)
+        {
+            FamilySize.Text = "Family Size: " + NameList.Count;
+            EdgeCount.Text = "Edge Count: " + EdgeList.Count;
         }
     }
 }

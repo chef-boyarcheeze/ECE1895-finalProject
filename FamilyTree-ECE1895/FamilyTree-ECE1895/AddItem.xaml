@@ -5,14 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyTree_ECE1895"
         mc:Ignorable="d"
-        Title="Add Item" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="addName" HorizontalAlignment="Left" Margin="330,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" KeyDown="TextChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="236,103,0,0" TextWrapping="Wrap" Text="Add Name:" VerticalAlignment="Top" Height="22" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Margin="228,130,0,0" TextWrapping="Wrap" Text="Add Relation:" VerticalAlignment="Top" Height="22" Width="86"/>
-        <TextBox x:Name="addRelation" HorizontalAlignment="Left" Margin="330,130,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" KeyDown="TextChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="236,157,0,0" TextWrapping="Wrap" Text="Add Age:" VerticalAlignment="Top" Height="22" Width="70"/>
-        <TextBox x:Name="addAge" HorizontalAlignment="Left" Margin="330,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" KeyDown="TextChanged"/>
+        Title="Add Item" Height="202" Width="271">
+    <Grid Margin="0,0,10,12">
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,24,0,0" TextWrapping="Wrap" Text="Add Name:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="26,62,0,0" TextWrapping="Wrap" Text="Add Age:" VerticalAlignment="Top" Height="22" Width="70" Background="Gainsboro"/>
+        <TextBox x:Name="addName" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="120,26,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" KeyDown="TextChanged"/>
+        <TextBox x:Name="addAge" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="120,64,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="120" KeyDown="TextChanged"/>
+        <Button x:Name="addPerson" Content="Add Person" HorizontalAlignment="Left" Margin="145,106,0,0" VerticalAlignment="Top" Click="AddPerson" ClickMode="Press" Width="70" Background="#FF65E86D" Height="36"/>
 
 
 
